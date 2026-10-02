@@ -70,8 +70,13 @@
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <!-- Mengubah 'btn-info' menjadi 'btn-light' agar tombol berwarna putih dan tulisan tetap hitam ('text-dark') -->
                     <a href="#contact" class="btn btn-light btn-lg px-4 me-sm-3 fw-bold text-dark">contact</a>
-                    <a href="#Member" class="btn btn-outline-light btn-lg px-4">Member BTS</a>
+                    <a href="https://www.instagram.com/melodeyya?stkn=MXhzMjNnZWQzNHZpdQ==" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-lg px-4 fw-bold text-dark shadow-sm d-sm-inline-flex align-items-center justify-content-center gap-2" style="min-height: 48px;"
+                        title="Instagram">
+                        <!-- Gambar logo Instagram dari Wikimedia -->
+                        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1280px-Instagram_logo_2022.svg.png?utm_source=id.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Instagram Logo" style="height: 24px; width: 24px; object-fit: contain;">                        Instagram
+                    </a>
                 </div>
+            </div>
 
 
             </div>
@@ -378,72 +383,7 @@
                 box-shadow: 0 15px 35px rgba(110, 66, 193, 0.08);
                 /* Bayangan halus berwarna ungu murni */
                 padding: 40px;
-                transition: opacity 650ms ease, transform 650ms ease, box-shadow 0.3s ease;
-            }
-            
-            #contact.contact-motion-ready .contact-card {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-            
-            #contact.contact-is-visible .contact-card {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            #contact.contact-is-visible .contact-card:hover {
-                transform: translateY(-5px);
-            }
-            
-            #contact.contact-motion-ready .contact-card>.text-center,
-            #contact.contact-motion-ready .contact-card form>.mb-3,
-            #contact.contact-motion-ready .contact-card form>.mb-4,
-            #contact.contact-motion-ready .contact-card form>.d-flex {
-                opacity: 0;
-                transform: translateY(14px);
-                transition: opacity 500ms ease, transform 500ms ease;
-            }
-            
-            #contact.contact-is-visible .contact-card>.text-center,
-            #contact.contact-is-visible .contact-card form>.mb-3,
-            #contact.contact-is-visible .contact-card form>.mb-4,
-            #contact.contact-is-visible .contact-card form>.d-flex {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(1) {
-                transition-delay: 100ms;
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(2) {
-                transition-delay: 170ms;
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(3) {
-                transition-delay: 240ms;
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(4) {
-                transition-delay: 310ms;
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(5) {
-                transition-delay: 380ms;
-            }
-            
-            #contact.contact-is-visible .contact-card form> :nth-child(6) {
-                transition-delay: 450ms;
-            }
-            
-            @media (prefers-reduced-motion: reduce) {
-                #contact .contact-card,
-                #contact .contact-card>.text-center,
-                #contact .contact-card form>.mb-3,
-                #contact .contact-card form>.mb-4,
-                #contact .contact-card form>.d-flex {
-                    transition: none;
-                }
+                transition: transform 0.3s ease;
             }
             
             .contact-card:hover {
@@ -610,25 +550,6 @@
             </div>
         </section>
 
-        <script>
-            const contactSection = document.querySelector("#contact");
-
-            if (contactSection && "IntersectionObserver" in window) {
-                contactSection.classList.add("contact-motion-ready");
-
-                const contactObserver = new IntersectionObserver((entries, observer) => {
-                    if (entries[0].isIntersecting) {
-                        contactSection.classList.add("contact-is-visible");
-                        observer.disconnect();
-                    }
-                }, {
-                    threshold: 0.15
-                });
-
-                contactObserver.observe(contactSection);
-            }
-        </script>
-
 
         <!-- footer -->
         <footer class="footer bg-dark mt-5 p-2">
@@ -637,6 +558,7 @@
             </p>
         </footer>
         <!-- footer -->
+
 
 
 
