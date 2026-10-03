@@ -469,6 +469,45 @@
                 background-color: #7e57c2;
                 border-color: #7e57c2;
             }
+            
+            #contact .contact-card {
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity 650ms ease, transform 650ms ease;
+            }
+            
+            #contact.contact-motion-ready .contact-card {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            
+            #contact.contact-is-visible .contact-card {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            #contact label[for="favorite-member"] {
+                display: block;
+                transition: opacity 500ms ease, transform 500ms ease;
+            }
+            
+            #contact.contact-motion-ready label[for="favorite-member"] {
+                opacity: 0;
+                transform: translateY(-14px);
+            }
+            
+            #contact.contact-is-visible label[for="favorite-member"] {
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 250ms;
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+                #contact .contact-card,
+                #contact label[for="favorite-member"] {
+                    transition: none;
+                }
+            }
         </style>
 
         <section id="contact">
@@ -549,6 +588,25 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            const contactSection = document.querySelector("#contact");
+
+            if (contactSection && "IntersectionObserver" in window) {
+                contactSection.classList.add("contact-motion-ready");
+
+                const contactObserver = new IntersectionObserver((entries, observer) => {
+                    if (entries[0].isIntersecting) {
+                        contactSection.classList.add("contact-is-visible");
+                        observer.disconnect();
+                    }
+                }, {
+                    threshold: 0.15
+                });
+
+                contactObserver.observe(contactSection);
+            }
+        </script>
 
 
         <!-- footer -->
